@@ -4,29 +4,29 @@ import java.time.LocalDate;
 import java.util.List;
 
 public class Student extends Person {
-    private String clas;
+    private SchoolClass schoolClass;
     private List<Integer> grades;
 
-    public Student(String name, String surname, LocalDate dateOfBirth, String clas, List<Integer> grades) {
+    public Student(String name, String surname, LocalDate dateOfBirth, SchoolClass schoolClass, List<Integer> grades) {
         super(name, surname, dateOfBirth);
-        this.clas = clas;
+        this.schoolClass = schoolClass;
         this.grades = grades;
     }
 
-    public Student(String clas, List<Integer> grades) {
-        this.clas = clas;
+    public Student(SchoolClass schoolClass, List<Integer> grades) {
+        this.schoolClass = schoolClass;
         this.grades = grades;
     }
 
     public Student() {
     }
 
-    public String getClas() {
-        return clas;
+    public SchoolClass getSchoolClass() {
+        return schoolClass;
     }
 
-    public void setClas(String clas) {
-        this.clas = clas;
+    public void setSchoolClass(SchoolClass schoolClass) {
+        this.schoolClass = schoolClass;
     }
 
     public List<Integer> getGrades() {
@@ -40,7 +40,7 @@ public class Student extends Person {
     public String getDisplayName() {
         return super.getName() + " " +
                 super.getSurname() +
-                " (class " + clas +
+                " (class " + schoolClass +
                 ")";
     }
 
@@ -50,7 +50,7 @@ public class Student extends Person {
                 super.getName() + " " +
                 super.getSurname() +
                 " (date of birth: " + super.getDateOfBirth() +
-                ", class: " + clas +
+                ", class: " + schoolClass +
                 ", grades: " + grades +
                 ")";
     }

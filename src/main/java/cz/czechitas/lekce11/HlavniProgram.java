@@ -3,10 +3,7 @@ package cz.czechitas.lekce11;
 import cz.czechitas.lekce11.grafika.Ctverec;
 import cz.czechitas.lekce11.grafika.Trojuhelnik;
 import cz.czechitas.lekce11.grafika.Tvar;
-import cz.czechitas.lekce11.school.Parent;
-import cz.czechitas.lekce11.school.Person;
-import cz.czechitas.lekce11.school.Student;
-import cz.czechitas.lekce11.school.Teacher;
+import cz.czechitas.lekce11.school.*;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -32,26 +29,30 @@ public class HlavniProgram implements Runnable {
 //        nakreslitTvar(new Ctverec());
 //        nakreslitTvar(new Trojuhelnik());
 
-//        1. student
-        Student tomasProkes = new Student();
-        tomasProkes.setName("Tomas");
-        tomasProkes.setSurname("Prokes");
-        tomasProkes.setDateOfBirth(LocalDate.of(1985, 06, 01));
-        tomasProkes.setClas("4.B");
-        tomasProkes.setGrades(List.of(1, 2, 3, 1, 2));
-        System.out.println(tomasProkes);
+        // school class
+        SchoolClass b4 = new SchoolClass(4, "B");
+        System.out.println(b4);
 
-//        2. student
-        Student vlastimilCernicek = new Student("Vlastimil", "Cernicek", LocalDate.of(1985, 07, 01), "4.C", List.of(1, 2, 3, 2, 1));
-        System.out.println(vlastimilCernicek);
+        // 1. student
+        Student johnDoe = new Student();
+        johnDoe.setName("John");
+        johnDoe.setSurname("Doe");
+        johnDoe.setDateOfBirth(LocalDate.of(2014, 06, 01));
+        johnDoe.setSchoolClass(new SchoolClass(4, "B"));
+        johnDoe.setGrades(List.of(1, 2, 3, 1, 2));
+        System.out.println(johnDoe);
+
+        // 2. student
+        Student annBoe = new Student("Ann", "Boe", LocalDate.of(2014, 07, 01), new SchoolClass(4, "C"), List.of(1, 2, 3, 2, 1));
+        System.out.println(annBoe);
 
         // teacher
-        Teacher filipJirsak = new Teacher("Filip", "Jirsak", LocalDate.of(1980, 01, 01), "4.B");
-        System.out.println(filipJirsak);
+        Teacher davidBeck = new Teacher("David", "Beck", LocalDate.of(1980, 01, 01), new SchoolClass(4, "B"));
+        System.out.println(davidBeck);
 
 //        parent
-        Parent jarmilaProkesova = new Parent("Jarmila", "Prokesova", LocalDate.of(1965, 06, 01), List.of(tomasProkes));
-        System.out.println(jarmilaProkesova);
+        Parent janeDoe = new Parent("Jane", "Doe", LocalDate.of(1990, 06, 01), List.of(johnDoe));
+        System.out.println(janeDoe);
 
     }
 

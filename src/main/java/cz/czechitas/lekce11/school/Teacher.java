@@ -3,13 +3,13 @@ package cz.czechitas.lekce11.school;
 import java.time.LocalDate;
 
 public class Teacher extends Person {
-    private String masterOfClass;
+    private SchoolClass masterOfClass;
 
-    public Teacher(String masterOfClass) {
+    public Teacher(SchoolClass masterOfClass) {
         this.masterOfClass = masterOfClass;
     }
 
-    public Teacher(String name, String surname, LocalDate dateOfBirth, String masterOfClass) {
+    public Teacher(String name, String surname, LocalDate dateOfBirth, SchoolClass masterOfClass) {
         super(name, surname, dateOfBirth);
         this.masterOfClass = masterOfClass;
     }
@@ -17,16 +17,16 @@ public class Teacher extends Person {
     public Teacher() {
     }
 
-    public String getMasterOfClass() {
+    public SchoolClass getMasterOfClass() {
         return masterOfClass;
     }
 
-    public void setMasterOfClass(String masterOfClass) {
+    public void setMasterOfClass(SchoolClass masterOfClass) {
         this.masterOfClass = masterOfClass;
     }
 
     public boolean isMasterOfClass() {
-        return !masterOfClass.isEmpty();
+        return true;
 
     }
 
@@ -36,7 +36,7 @@ public class Teacher extends Person {
             return "Teacher " +
                     super.getName() + " " +
                     super.getSurname() +
-                    " (masterOfClass: " + masterOfClass +
+                    " (master of class: " + masterOfClass +
                     ")";
         } else {
             return "Teacher " +
